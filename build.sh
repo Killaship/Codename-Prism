@@ -1,3 +1,3 @@
 git pull
-gcc -Wall -Wextra -c src/shell.c -o prism
+gcc src/shell.c -Wall -Wextra -o prism
 ./prism
