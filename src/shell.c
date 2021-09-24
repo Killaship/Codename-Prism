@@ -6,6 +6,6 @@
 
 void main() {
   const char* cmd = "/bin/ls";
-  char* args = [cmd, 0];
+  char *const args = [cmd];
   execv(cmd, args);
 }
