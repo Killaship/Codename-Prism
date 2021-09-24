@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 void main() {
-  char cmd = "/bin/ls";
-  args = [cmd, 0];
+  const char* cmd = "/bin/ls";
+  char* args = [cmd, 0];
   execv(cmd, args);
 }
