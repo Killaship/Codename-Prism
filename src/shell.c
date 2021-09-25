@@ -24,13 +24,12 @@ int runcmd(const char *cmd) {
 }
 
 void main() {
-  const char *prompt = ">";
+  const char *prompt = "\n>\n";
   char str[512];
   printf(prompt);
   while(1) {
     scanf("%s", str);
     runcmd(str);
-    printf("\n");
     printf(prompt);
   }
 }
