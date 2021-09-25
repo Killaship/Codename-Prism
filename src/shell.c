@@ -29,9 +29,8 @@ void main() {
   while(1) {
     printf(prompt);
     scanf("%s", str);
-    printf("\n");
     runcmd(str);
-    
+    printf("\n");
   }
 }
 
