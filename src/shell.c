@@ -24,9 +24,8 @@ int runcmd(const char *cmd) {
 }
 
 void main() {
-  const char *prompt = "\n>\n";
+  const char *prompt = ">";
   char str[512];
-  printf(prompt);
   while(1) {
     printf(prompt);
     scanf("%s", str);
