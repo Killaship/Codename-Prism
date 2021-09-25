@@ -9,7 +9,7 @@ void main() {
   char str[512];
   while(1) {
     printf(prompt);
-    scanf("%s %d", str);
+    scanf("%s", str);
     char* arr[] = {str, NULL};
     execv(str, arr);
   }
