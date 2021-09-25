@@ -8,7 +8,7 @@ void displayprompt() {
   char cwd[4097];
   const char *prompt = "> ";
   getcwd(cwd, sizeof(cwd));
-  printf(cwd, prompt, "\n");
+  printf("%s%s%s", cwd, prompt, "\n");
 }
 
 int runcmd(const char *cmd) {
