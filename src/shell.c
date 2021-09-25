@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 void main() {
-  char prompt = ">";
+  char *prompt = ">";
   char str[512];
   while(1) {
     printf(prompt);
