@@ -1,9 +1,9 @@
 // todo: everything
 // https://theartofmachinery.com/2018/11/07/writing_a_nix_shell.html
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+
 
 int runcmd(const char *cmd) {
   int pid = fork();
@@ -18,11 +18,9 @@ int runcmd(const char *cmd) {
     printf("Command execution failed!"); // you should only get here if execv() failed
     exit(1);
   }
-  int status;
-  wait(&status); // just wait until child is done
-  // This is the exit code of the child
-  // (Conventially zero means okay, non-zero means error)
-  return status;
+  
+
+  return 0;
 }
 
 void main() {
