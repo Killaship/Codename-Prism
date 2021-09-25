@@ -8,7 +8,7 @@ void displayprompt() {
   char cwd[4097];
   const char *prompt = "> ";
   getcwd(cwd, sizeof(cwd));
-  printf(cwd, prompt);
+  printf(cwd, prompt, "\n");
 }
 
 int runcmd(const char *cmd) {
@@ -20,7 +20,7 @@ int runcmd(const char *cmd) {
   if(pid == 0) { // child process
     const char *arr[] = {cmd, NULL};
     execv(cmd, arr);
-    printf("\n");
+    
     
     printf("Command execution failed!"); // you should only get here if execv() failed
     exit(1);
