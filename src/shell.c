@@ -33,10 +33,10 @@ int runcmd(const char *cmd) {
 void main() {
   char str[512];
   while(1) {
-    
+    displayprompt();
     scanf("%s", str);
     runcmd(str);
-    displayprompt();
+    
   }
 }
 
