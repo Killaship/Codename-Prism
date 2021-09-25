@@ -28,9 +28,10 @@ void main() {
   char str[512];
   printf(prompt);
   while(1) {
+    printf(prompt);
     scanf("%s", str);
     runcmd(str);
-    printf(prompt);
+    printf("\n");
   }
 }
 
