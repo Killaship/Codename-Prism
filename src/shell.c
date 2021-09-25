@@ -5,6 +5,12 @@
 #include <stdio.h>
 
 void main() {
-  char* arr[] = {"ls", NULL};
-  execv("/bin/ls", arr);
+  char prompt = ">";
+  char str[512];
+  while(1) {
+    printf(prompt);
+    scanf("%s %d", str);
+    char* arr[] = {str, NULL};
+    execv(str, arr);
+  }
 }
