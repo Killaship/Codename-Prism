@@ -12,7 +12,7 @@ int runcmd(const char *cmd) {
     exit(1);
   }
   if(pid == 0) { // child process
-    char* arr[] = {cmd, NULL};
+    const char* arr[] = {cmd, NULL};
     execv(cmd, arr);
     
     printf("Command execution failed!"); // you should only get here if execv() failed
