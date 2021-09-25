@@ -19,6 +19,7 @@ int runcmd(const char *cmd) {
   }
   if(pid == 0) { // child process
     const char *arr[] = {cmd, NULL};
+    printf("\n");
     execv(cmd, arr);
     
     
