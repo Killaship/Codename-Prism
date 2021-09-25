@@ -5,8 +5,10 @@
 #include <stdio.h>
 
 void displayprompt() {
+  char cwd[4097];
   const char *prompt = "> ";
-  printf(getcwd(), prompt);
+  getcwd(cwd, sizeof(cwd));
+  printf(cwd, prompt);
 }
 
 int runcmd(const char *cmd) {
