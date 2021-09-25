@@ -5,17 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void main() {
-  const char *prompt = ">";
-  char str[512];
-  while(1) {
-    printf(prompt);
-    scanf("%s", str);
-    runcmd(str);
-  }
-}
-
-int runcmd(char cmd) {
+int runcmd(const char *cmd) {
   int pid = fork();
   if(pid < 0) { // error for some reason
     printf("Can't create a new process!");
@@ -34,3 +24,15 @@ int runcmd(char cmd) {
   // (Conventially zero means okay, non-zero means error)
   return status;
 }
+
+void main() {
+  const char *prompt = ">";
+  char str[512];
+  while(1) {
+    printf(prompt);
+    scanf("%s", str);
+    runcmd(str);
+  }
+}
+
+
