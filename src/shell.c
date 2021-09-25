@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void displayprompt() {
+  const char *prompt = "> ";
+  printf(getcwd(), prompt);
+}
 
 int runcmd(const char *cmd) {
   int pid = fork();
@@ -25,13 +29,12 @@ int runcmd(const char *cmd) {
 }
 
 void main() {
-  const char *prompt = ">";
   char str[512];
   while(1) {
     
     scanf("%s", str);
     runcmd(str);
-    printf(prompt);
+    displayprompt();
   }
 }
 
