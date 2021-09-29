@@ -20,7 +20,6 @@ int runcmd(char *cmd) {
   }
   if(pid == 0) { // child process
    char* arr[] = {cmd, NULL};
-    printf("\n");
     execv(cmd, arr);
     
     
