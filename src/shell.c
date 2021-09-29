@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include<sys/wait.h>
 
 void displayprompt() {
   char cwd[4097];
@@ -11,7 +12,7 @@ void displayprompt() {
   printf("%s%s", cwd, prompt);
 }
 
-int runcmd(const char *cmd) {
+int runcmd(char *cmd) {
   int pid = fork();
   if(pid < 0) { // error for some reason
     printf("Can't create a new process!");
@@ -34,12 +35,11 @@ int runcmd(const char *cmd) {
 
 int main() {
   char str[512];
-  displayprompt();
   while(1) {
     displayprompt();
     scanf("%s", str);
     runcmd(str);
-    
+    wait(NULL);
     
   }
   
