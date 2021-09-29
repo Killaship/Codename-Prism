@@ -3,11 +3,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include<sys/wait.h>
+#include <sys/wait.h>
+#include <string.h>
 
 void displayprompt() {
+  char usr[2] = "$";
   char cwd[4097];
-  const char *prompt = "> ";
+  if(geteuid() == 0)  {strcpy(usr, "#");}
+  else {strcpy(usr, "$");}
+  
+  char *prompt = usr;
   getcwd(cwd, sizeof(cwd));
   printf("%s%s", cwd, prompt);
 }
