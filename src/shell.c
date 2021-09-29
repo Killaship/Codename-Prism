@@ -7,10 +7,10 @@
 #include <string.h>
 
 void displayprompt() {
-  char usr[2] = "$";
+  char usr[3] = "$";
   char cwd[4097];
-  if(geteuid() == 0)  {strcpy(usr, "#");}
-  else {strcpy(usr, "$");}
+  if(geteuid() == 0)  {strcpy(usr, " #");}
+  else {strcpy(usr, " $");}
   
   char *prompt = usr;
   getcwd(cwd, sizeof(cwd));
