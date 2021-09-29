@@ -31,7 +31,7 @@ int runcmd(const char *cmd) {
   return 0;
 }
 
-void main() {
+int main() {
   char str[512];
   while(1) {
     displayprompt();
