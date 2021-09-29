@@ -18,9 +18,10 @@ int runcmd(const char *cmd) {
     exit(1);
   }
   if(pid == 0) { // child process
-    const char *arr[] = {cmd, NULL};
+   char* arr[] = {cmd, NULL};
     printf("\n");
     execv(cmd, arr);
+    
     
     
     printf("Command execution failed!"); // you should only get here if execv() failed
@@ -33,12 +34,15 @@ int runcmd(const char *cmd) {
 
 int main() {
   char str[512];
+  displayprompt();
   while(1) {
     displayprompt();
     scanf("%s", str);
     runcmd(str);
     
+    
   }
+  
 }
 
 
