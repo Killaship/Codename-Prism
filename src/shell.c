@@ -1,4 +1,4 @@
-// todo: everything
+// todo: implement executable finding and arguments
 // https://theartofmachinery.com/2018/11/07/writing_a_nix_shell.html
 #include <unistd.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@ void displayprompt() {
 int runcmd(char *cmd) {
   int pid = fork();
   if(pid < 0) { // error for some reason
-    printf("Can't create a new process!");
+    printf("Can't create a new process!\n");
     exit(1);
   }
   if(pid == 0) { // child process
@@ -29,13 +29,20 @@ int runcmd(char *cmd) {
     
     
     
-    printf("Command execution failed!"); // you should only get here if execv() failed
+    printf("Command execution failed!\n");// you should only get here if execv() failed
     exit(1);
   }
   
 
   return 0;
 }
+/*
+use getenv("PATH") combined with strtok (delim ":").
+then loop through the different paths looking for the binary. (note: how would you tell the difference  between a command and a straight path? (maybe try and find any "/"'s in the string, indicating a normal path?)
+
+
+*/
+
 
 int main() {
   char str[512];
