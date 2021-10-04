@@ -45,14 +45,16 @@ then loop through the different paths looking for the binary. (note: how would y
 
 
 int main() {
-  char str[512];
+  char str[4096];
   /* for now we'll just prepend "/bin/" to each command. apparently the seg fault from when I was testing this was actually a buffer overflow
   */
-  char bin[2048] = "/bin/";
+  char bin[4102] = "/bin/"; // 4096 + the space "/bin/" needs (6 bytes)
   while(1) {
     displayprompt();
     scanf("%s", str);
-    runcmd(strcat(bin, str));
+    printf(strcat(bin, str));
+    runcmd(strcat(bin, str)); // another bug: str is never overwritten so it actually breaks after 1 cmd
+    str[0] = (char) "\0"; // everything will think it's empty if a null is before the undefined data
     wait(NULL);
     
   }
