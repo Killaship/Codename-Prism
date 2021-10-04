@@ -45,11 +45,13 @@ then loop through the different paths looking for the binary. (note: how would y
 
 
 int main() {
-  char str[512];
+  char str[518];
+  char *bin = "/bin/";
   while(1) {
     displayprompt();
     scanf("%s", str);
-    runcmd(str);
+    
+    runcmd(strcat(bin, str));
     wait(NULL);
     
   }
