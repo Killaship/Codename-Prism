@@ -45,12 +45,13 @@ then loop through the different paths looking for the binary. (note: how would y
 
 
 int main() {
-  char str[518];
-  char *bin = "/bin/";
+  char str[512];
+  /* for now we'll just prepend "/bin/" to each command. apparently the seg fault from when I was testing this was actually a buffer overflow
+  */
+  char bin[2048] = "/bin/";
   while(1) {
     displayprompt();
     scanf("%s", str);
-    
     runcmd(strcat(bin, str));
     wait(NULL);
     
