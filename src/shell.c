@@ -7,7 +7,7 @@
 #include <string.h>
 
 void displayprompt() {
-  char usr[4] = ">";
+  char usr[4] = ">"; 
   char cwd[4097];
   if(geteuid() == 0)  {strcpy(usr, " # ");}
   else {strcpy(usr, " $ ");}
