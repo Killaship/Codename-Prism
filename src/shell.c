@@ -54,7 +54,7 @@ int main() {
   while(1) {
     displayprompt();
     scanf("%s", str);
-    printf(strcat(bin, str));
+    printf(strcat(bin, str), "\n");
     runcmd(strcat(bin, str)); // another bug: str is never overwritten so it actually breaks after 1 cmd
     str[0] = (char) 0;
     bin[6] = (char) 0; // everything will think it's empty if a null is before the undefined data
